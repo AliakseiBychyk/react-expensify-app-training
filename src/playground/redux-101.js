@@ -20,7 +20,11 @@ const store = createStore((state = { count: 0 }, action) => {
   }
 })
 
-console.log(store.getState())
+store.subscribe(() => {
+  console.log(store.getState())
+})
+
+
 
 // Actions - than an object that gets sent to the store
 
@@ -28,23 +32,18 @@ store.dispatch({
   type: 'INCREMENT'
 })
 
-console.log(store.getState())
 
 store.dispatch({
   type: 'INCREMENT'
 })
 
-console.log(store.getState())
 
 store.dispatch({
   type: 'RESET'
 })
 
-console.log(store.getState())
+
 
 store.dispatch({
   type: 'DECREMENT'
 })
-
-
-console.log(store.getState())
