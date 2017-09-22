@@ -20,6 +20,10 @@ const store = createStore((state = { count: 0 }, action) => {
     case 'RESET':
       return {
         count: 0
+      }
+    case 'SET':
+      return {
+        count: action.count
       }  
     default:
       return state;
@@ -48,10 +52,18 @@ store.dispatch({
   type: 'RESET'
 })
 
+store.dispatch({
+  type: 'DECREMENT'
+})
 
 store.dispatch({
   type: 'DECREMENT',
   decrementBy: 10
+})
+
+store.dispatch({
+  type: 'SET',
+  count: 101
 })
 
 unsubscribe()
