@@ -49,5 +49,5 @@ console.log(`You are ins ${city1} ${state}`)
 
 const item = ['Coffee (hot)', '$2.00', '$2.50', '$2.75']
 
-const [drink = 'Coffee (ice)', , price] = item
-console.log(`A medium ${drink} costs ${price}`)
+const [drink = 'Coffee (ice)', , mediumPrice] = item
+console.log(`A medium ${drink} costs ${mediumPrice}`)
