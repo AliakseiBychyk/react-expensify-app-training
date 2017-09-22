@@ -26,6 +26,12 @@ const removeExpense = ({id} = {}) => ({
 })
 
 // EDIT_EXPENSE
+const editExpense = (id, updates) => ({
+  type: 'EDIT_EXPENSE',
+  id,
+  updates
+})
+
 // SET_TEXT_FILTER
 // SORT_BY_DATE
 // SORT_BY_AMOUNT
@@ -41,7 +47,13 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
     case 'ADD_EXPENSE':
       return [...state, action.expense]  // state.concat(action.expense)
     case 'REMOVE_EXPENSE':
-      return state.filter(({id}) => id !== action.id)  
+      return state.filter(({ id }) => id !== action.id)
+    case 'EDIT_EXPENSE':
+      return state.map((expense) => {
+        return (expense.id === action.id) 
+          ? { ...expense, ...action.updates }
+          : expense
+      })  
     default: 
       return state  
   }
@@ -85,7 +97,10 @@ const expenseTwo = store.dispatch(addExpense({
   amount: 300
 }))
 
-store.dispatch(removeExpense({ id: expenseTwo.expense.id }))
+store.dispatch(removeExpense({ id: expenseOne.expense.id }))
+store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }))
+
+
 
 console.log(expenseOne)
 
@@ -110,5 +125,10 @@ const user = {
   age: 34
 }
 
-console.log({...user})
+console.log({
+  // age: 48, // won't be overriden
+  ...user,
+  location: 'Philadelphia',
+  age: 36 // override age
+})
 
