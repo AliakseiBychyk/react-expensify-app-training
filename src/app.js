@@ -11,12 +11,7 @@ import './styles/styles.scss'
 
 const store = configureStore()
 
-// addExpense -> Water bill
-// addExpense -> Gas bill
-// setTextFilter -> bill (2 items) -> water (1 item)
-// getVisibleExpenses -> print visibles ones to screen
-
-store.dispatch(addExpense({ description: 'Water bill' }))
+store.dispatch(addExpense({ description: 'Water bill', amount: 4500, createdAt: 200000  }))
 store.dispatch(addExpense({ description: 'Gas bill' }))
 store.dispatch(setTextFilter('bill'))
 
@@ -36,6 +31,5 @@ const jsx = (
   </Provider>
   
 )
-
 
 ReactDOM.render(jsx, document.getElementById('app'))
