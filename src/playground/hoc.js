@@ -1,4 +1,8 @@
 // Higher Order Component (HOC) - A component (HOC) that renders another component
+// Reuse code
+// Render hijacking
+// Prop manipulation
+// Abstract state
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -10,5 +14,16 @@ const Info = (props) => (
   </div>
 )
 
-ReactDOM.render(<Info info="There are the details" />,
+const withAdminWarning = (WrappedComponent) => {
+  return (props) => (
+    <div>
+      <p>This is private info. Please don't share</p>
+      <WrappedComponent {...props} />
+    </div>
+  )
+}
+
+const AdminInfo = withAdminWarning(Info)
+
+ReactDOM.render(<AdminInfo info="There are the details" />,
   document.getElementById('app'))
