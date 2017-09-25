@@ -23,7 +23,20 @@ const withAdminWarning = (WrappedComponent) => {
   )
 }
 
-const AdminInfo = withAdminWarning(Info)
+// requireAuthentication
+const requireAuthentication = (WrappedComponent) => {
+  return (props) => (
+    props.isAuthenticated
+      ? <WrappedComponent {...props} />
+      : <p>Please login to view the info</p>
+  )
+}
 
-ReactDOM.render(<AdminInfo info="There are the details" />,
-  document.getElementById('app'))
+const AdminInfo = withAdminWarning(Info)
+const AuthInfo = requireAuthentication(Info)
+
+// ReactDOM.render(<AdminInfo isAdmin={false} info="There are the details" />,
+// document.getElementById('app'))
+
+ReactDOM.render(<AuthInfo isAuthenticated={false} info="There are the details" />,
+document.getElementById('app'))
