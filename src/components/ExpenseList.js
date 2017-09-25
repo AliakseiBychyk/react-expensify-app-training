@@ -5,6 +5,7 @@ const ExpenseList = (props) => (
   <div>
     <h1>Expense List</h1>
     {props.filters.text}
+    <br />
     {props.expenses.length}
   </div>
 )
