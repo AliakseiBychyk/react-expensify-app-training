@@ -15,7 +15,7 @@ export class EditExpensePage extends Component {
   render() {
     return (
       <div>
-        Editing the expense with id of {this.props.match.params.id}
+        Editing the expense with id of {this.props.id}
   
         <ExpenseForm
           expense={this.props.expense}  
@@ -32,7 +32,8 @@ export class EditExpensePage extends Component {
 const mapStateToProps = (state, props) => ({
   expense: state.expenses.find((expense) =>
     expense.id === props.match.params.id
-  )
+  ),
+  id: props.match.params.id
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
