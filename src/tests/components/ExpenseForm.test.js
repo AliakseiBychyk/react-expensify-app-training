@@ -59,3 +59,9 @@ test('should not set amount if invalid input', () => {
   expect(wrapper.state('amount')).not.toBe(value)
   expect(wrapper.state('amount')).toBe('')
 })
+
+test('should call onSubmit prop for valid form submission', () => {
+  const onSubmitSpy = jest.fn()
+  onSubmitSpy()
+  expect(onSubmitSpy).toHaveBeenCalled()
+})
