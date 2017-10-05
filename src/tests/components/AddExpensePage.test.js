@@ -3,15 +3,15 @@ import { shallow } from 'enzyme'
 import { AddExpensePage } from '../../components/AddExpensePage'
 import expenses from '../fixtures/expenses'
 
-let onSubmit
+let addExpense
 let history
 let wrapper
 
 beforeEach(() => {
-  onSubmit = jest.fn()
+  addExpense = jest.fn()
   history = { push: jest.fn() }
   wrapper = shallow(
-    <AddExpensePage onSubmit={onSubmit} history={history} />)
+    <AddExpensePage addExpense={addExpense} history={history} />)
 });
 
 test('should render AddExpensePage correctly', () => {
@@ -21,5 +21,5 @@ test('should render AddExpensePage correctly', () => {
 test('should handle onSubmit', () => {
   wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2])
   expect(history.push).toHaveBeenLastCalledWith('/')
-  expect(onSubmit).toBeCalledWith(expenses[2])
+  expect(addExpense).toBeCalledWith(expenses[2])
 })
