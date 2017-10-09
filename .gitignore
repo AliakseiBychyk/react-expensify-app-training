@@ -2,4 +2,9 @@
 
 /public/scripts/app.js
 
+public/bundle.js
+public/bundle.js.map
+public/styles.css
+public/styles.css.map
+
 yarn-error.log
