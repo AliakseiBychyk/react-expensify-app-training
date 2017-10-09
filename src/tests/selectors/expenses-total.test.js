@@ -1,7 +1,5 @@
-import getExpensesTotal from '../../selectors/expenses-total.js'
+import getExpensesTotal from '../../selectors/expenses-total'
 import expenses from '../fixtures/expenses'
-
-const total = getExpensesTotal(expenses)
 
 test('should return 0 if no expenses', () => {
   const total = getExpensesTotal([])
