@@ -29,9 +29,9 @@ db.ref().set({
 
 // db.ref().set('this is my data')
 
-db.ref('age').set(45)
+// db.ref('age').set(45)
 
-db.ref('location/city').set('Brest BY')
+// db.ref('location/city').set('Brest BY')
 
 // db.ref('attributes/height').set(180)
 // db.ref('attributes/weight').set(100)
@@ -39,6 +39,10 @@ db.ref('location/city').set('Brest BY')
 db.ref('attributes').set({
   height: 180,
   weight: 100
+}).then(()=>{
+  console.log('data is saved')
+}).catch(err => {
+  console.log(err)
 })
 
 console.log('I made a request to save the data')
