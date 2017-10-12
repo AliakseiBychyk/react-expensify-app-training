@@ -29,5 +29,10 @@ db.ref('age').set(45)
 
 db.ref('location/city').set('Brest BY')
 
-db.ref('attributes/height').set(180)
-db.ref('attributes/weight').set(100)
+// db.ref('attributes/height').set(180)
+// db.ref('attributes/weight').set(100)
+
+db.ref('attributes').set({
+  height: 180,
+  weight: 100
+})
