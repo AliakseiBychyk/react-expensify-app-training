@@ -21,6 +21,10 @@ db.ref().set({
     city: 'Brest',
     country: 'Belarus'
   }
+}).then(() => {
+  console.log('Data is saved')
+}).catch(err => {
+  console.log('this failed', err)
 })
 
 // db.ref().set('this is my data')
@@ -36,3 +40,5 @@ db.ref('attributes').set({
   height: 180,
   weight: 100
 })
+
+console.log('I made a request to save the data')
