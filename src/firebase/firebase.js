@@ -16,9 +16,18 @@ const db = firebase.database()
 
 db.ref().set({
   name: 'Aleks Bychyk',
-  age: 45,
+  age: 44,
   location: {
     city: 'Brest',
     country: 'Belarus'
   }
 })
+
+// db.ref().set('this is my data')
+
+db.ref('age').set(45)
+
+db.ref('location/city').set('Brest BY')
+
+db.ref('attributes/height').set(180)
+db.ref('attributes/weight').set(100)
