@@ -1,5 +1,10 @@
 import uuid from 'uuid'
 
+// component calls action generator
+// action generator returns object
+// component dispatches object
+// redux store changes
+
 // ADD_EXPENSE
 export const addExpense = (
   { description = '',
