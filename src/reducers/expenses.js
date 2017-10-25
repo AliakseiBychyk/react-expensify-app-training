@@ -13,7 +13,9 @@ export default (state = expensesReducerDefaultState, action) => {
         return (expense.id === action.id) 
           ? { ...expense, ...action.updates }
           : expense
-      })  
+      })
+    case 'SET_EXPENSES':
+      return action.expenses  
     default: 
       return state  
   }
