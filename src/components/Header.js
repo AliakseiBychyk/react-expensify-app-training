@@ -14,7 +14,7 @@ export const Header = () => (
   </header>
 )
 
-const const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   startLogout: () => dispatch(startLogout())
 })
 
