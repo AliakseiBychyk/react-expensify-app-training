@@ -68,6 +68,7 @@ class ExpenseForm extends Component {
         {this.state.error && <h2 style={{ color: 'red' }}>{this.state.error}</h2>}
         <form onSubmit={this.onSubmit}>
           <input
+            className="text-input"  
             type="text"
             placeholder="Description"
             autoFocus
@@ -75,6 +76,7 @@ class ExpenseForm extends Component {
             onChange={this.onDescriptionChange}
           />
           <input
+            className="text-input"  
             type="text"
             placeholder="Amount"
             value={this.state.amount}
@@ -89,6 +91,7 @@ class ExpenseForm extends Component {
             isOutsideRange={() => false}
           />
           <textarea
+            className="textarea"  
             placeholder="Add a note for your expense (optional)"
             value={this.state.note}
             onChange={this.onNoteChange}
